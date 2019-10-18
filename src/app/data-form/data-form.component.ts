@@ -31,12 +31,16 @@ export class DataFormComponent implements OnInit {
     this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
       .subscribe(response => {
         console.log(response);
-        this.formulario.reset();
+        this.resetar();
       },
       (error: any) => alert('erro'));
 //    this.http.get(`//viacep.com.br/ws/${cep}/json`)
 //    .subscribe(dados => this.populaDadosForm(dados, form));
    // .subscribe(dados => console.log(dados));
+}
+
+resetar() {
+  this.formulario.reset();
 }
 
 }
