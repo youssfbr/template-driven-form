@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-data-form',
@@ -28,7 +29,11 @@ export class DataFormComponent implements OnInit {
     console.log(this.formulario.value);
 
     this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
-      .subscribe(response => console.log(response)) ;
+      .subscribe(response => {
+        console.log(response);
+        this.formulario.reset();
+      },
+      (error: any) => alert('erro'));
 //    this.http.get(`//viacep.com.br/ws/${cep}/json`)
 //    .subscribe(dados => this.populaDadosForm(dados, form));
    // .subscribe(dados => console.log(dados));
