@@ -7,6 +7,7 @@
         <label for="email">E-mail</label>
         <input type="email" class="form-control"  formControlName="email" id="email" placeholder="nome@email.com">
     </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Submit</button> |
+      <button type="submit" class="btn" (click)="resetar()">Cancelar</button>
       <app-form-debug [form]="formulario"></app-form-debug>
 </form>
